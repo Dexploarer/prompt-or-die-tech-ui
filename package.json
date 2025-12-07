@@ -3,8 +3,21 @@
   "version": "0.0.1",
   "description": "Professional UI template suite for modern, agentic, and game-inspired interfaces. strictly typed and production-ready.",
   "type": "module",
-  "main": "index.ts",
-  "types": "index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "globals.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./globals.css": "./globals.css"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dexploarer/prompt-or-die-tech-ui.git"
@@ -27,7 +40,7 @@
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "tsc"
+    "build": "tsup index.ts --format cjs,esm --dts --clean --external react"
   },
   "dependencies": {
     "clsx": "^2.1.0",
@@ -42,9 +55,10 @@
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
-    "typescript": "^5.7.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^3.4.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.0"
   }
 }
