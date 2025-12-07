@@ -1,0 +1,50 @@
+{
+  "name": "@prompt-or-die/tech-ui",
+  "version": "0.0.1",
+  "description": "Professional UI template suite for modern, agentic, and game-inspired interfaces. strictly typed and production-ready.",
+  "type": "module",
+  "main": "index.ts",
+  "types": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dexploarer/prompt-or-die-tech-ui.git"
+  },
+  "author": "dexploarer <dexploarer@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "ui-library",
+    "agentic-ui",
+    "game-ui",
+    "glassmorphism",
+    "cyberpunk",
+    "tech-ui",
+    "typescript"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.0",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.460.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "tailwindcss": ">=3.4.0 <5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.7.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^3.4.0"
+  }
+}

@@ -1,0 +1,282 @@
+@import "tailwindcss";
+
+@theme {
+  /* ============================================
+   * ELIZA-STYLE DARK THEME
+   * Sharp corners, thin lines, orange accent
+   * ============================================ */
+
+  /* Background Colors */
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+
+  --color-card: #111111;
+  --color-card-foreground: #fafafa;
+
+  --color-muted: #1a1a1a;
+  --color-muted-foreground: #737373;
+
+  /* Orange Accent - Primary Brand Color */
+  --color-primary: #ff5800;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #1f1f1f;
+  --color-secondary-foreground: #fafafa;
+
+  --color-accent: #ff5800;
+  --color-accent-foreground: #ffffff;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #262626;
+  --color-input: #262626;
+  --color-ring: #ff5800;
+
+  /* Status Colors */
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Border Radius - Sharp, technical */
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+
+  /* Font Families */
+  --font-family-mono: "SF Mono", "Roboto Mono", ui-monospace, monospace;
+  --font-family-sans: "Inter", system-ui, sans-serif;
+
+  /* Shadows - Glow effects */
+  --shadow-glow-primary: 0 0 20px rgba(255, 88, 0, 0.4);
+  --shadow-glow-success: 0 0 20px rgba(34, 197, 94, 0.4);
+  --shadow-glow-error: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* ============================================
+ * BASE STYLES
+ * ============================================ */
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+ * TYPOGRAPHY UTILITIES
+ * ============================================ */
+
+/* Monospace font utility */
+.font-mono {
+  font-family: var(--font-mono), var(--font-family-mono);
+}
+
+/* Text glow effect for branding */
+.text-glow {
+  text-shadow: 0 0 20px var(--color-primary), 0 0 40px var(--color-primary);
+}
+
+.text-glow-success {
+  text-shadow: 0 0 20px var(--color-success), 0 0 40px var(--color-success);
+}
+
+.text-glow-error {
+  text-shadow: 0 0 20px var(--color-error), 0 0 40px var(--color-error);
+}
+
+/* ============================================
+ * TECH FRAME STYLES
+ * Sharp box with crossing corner lines
+ * ============================================ */
+
+.tech-frame {
+  position: relative;
+  border: 1px solid var(--color-border);
+}
+
+.tech-frame::before,
+.tech-frame::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.tech-frame::before {
+  top: -4px;
+  left: -4px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.tech-frame::after {
+  top: -4px;
+  right: -4px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.tech-frame-inner::before,
+.tech-frame-inner::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.tech-frame-inner::before {
+  bottom: -4px;
+  left: -4px;
+  border-right: none;
+  border-top: none;
+}
+
+.tech-frame-inner::after {
+  bottom: -4px;
+  right: -4px;
+  border-left: none;
+  border-top: none;
+}
+
+/* ============================================
+ * CORNER FRAME STYLES
+ * Alternative corner tick marks
+ * ============================================ */
+
+.corner-frame {
+  position: relative;
+}
+
+.corner-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-border);
+  pointer-events: none;
+}
+
+.corner-tl,
+.corner-tr,
+.corner-bl,
+.corner-br {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.corner-tr {
+  top: -1px;
+  right: -1px;
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+}
+
+.corner-bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.corner-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+}
+
+/* ============================================
+ * SCROLLBAR STYLES
+ * Minimal, dark theme
+ * ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+/* ============================================
+ * ANIMATION UTILITIES
+ * ============================================ */
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px var(--color-primary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* ============================================
+ * GLASS MORPHISM UTILITIES
+ * For base components
+ * ============================================ */
+
+.glass {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-hover:hover {
+  border-color: rgba(255, 88, 0, 0.3);
+  box-shadow: 0 0 30px rgba(255, 88, 0, 0.1);
+}
